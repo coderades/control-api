@@ -1,4 +1,4 @@
-package com.rades.erp.controller;
+package com.control.api.controller;
 
 import javax.validation.Valid;
 
@@ -17,9 +17,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rades.erp.model.User;
-import com.rades.erp.repository.UserRepository;
-import com.rades.erp.service.UserService;
+import com.control.api.model.User;
+import com.control.api.repository.UserRepository;
+import com.control.api.service.UserService;
 
 @RestController
 @RequestMapping("/api/user")
@@ -80,7 +80,7 @@ public class UserController {
 	@PostMapping
 	@Transactional(rollbackFor = Exception.class)
 	public ResponseEntity<?> insert(@Valid @RequestBody User user) {
-		final var save = userRepository.save(user);	
+		final var save = userRepository.save(user);
 		return save == null ? ResponseEntity.status(HttpStatus.CONFLICT).build()
 				: ResponseEntity.status(HttpStatus.CREATED).body(user);
 	}

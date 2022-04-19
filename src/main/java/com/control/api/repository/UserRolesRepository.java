@@ -1,8 +1,8 @@
-package com.rades.erp.repository;
+package com.control.api.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.rades.erp.model.UserRoles;
+import com.control.api.model.UserRoles;
 
 public interface UserRolesRepository  extends JpaRepository<UserRoles, String> {
 

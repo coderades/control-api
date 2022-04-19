@@ -1,4 +1,4 @@
-package com.rades.erp.model;
+package com.control.api.model;
 
 import java.time.LocalDateTime;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.rades.erp.repository;
+package com.control.api.repository;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rades.erp.model.User;
+import com.control.api.model.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {

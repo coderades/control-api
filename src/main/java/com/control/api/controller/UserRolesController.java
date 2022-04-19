@@ -1,4 +1,4 @@
-package com.rades.erp.controller;
+package com.control.api.controller;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rades.erp.repository.UserRolesRepository;
+import com.control.api.repository.UserRolesRepository;
 
 @RestController
 @RequestMapping("/api/userRoles")

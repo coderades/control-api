@@ -1,4 +1,4 @@
-package com.rades.erp;
+package com.control.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

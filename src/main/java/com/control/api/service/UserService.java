@@ -1,6 +1,8 @@
-package com.rades.erp.service;
+package com.control.api.service;
 
 import java.util.List;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -8,10 +10,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.rades.erp.model.User;
-import com.rades.erp.repository.UserRepository;
+import com.control.api.model.User;
+import com.control.api.repository.UserRepository;
 
 @Service
+@Transactional
 public class UserService {
 
 	private final UserRepository userRepository;
@@ -59,7 +62,7 @@ public class UserService {
 		userSave.setUserIsCredentialsNonDiscredited(user.getUserIsCredentialsNonDiscredited());
 		userSave.setUserName(user.getUserName());
 		userSave.setUserEmail(user.getUserEmail());
-		
+
 		userSave.setUserPassword(new BCryptPasswordEncoder().encode(user.getUserPassword()));
 
 		final var save = userRepository.save(userSave);

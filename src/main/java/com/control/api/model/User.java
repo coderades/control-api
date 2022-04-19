@@ -1,4 +1,4 @@
-package com.rades.erp.model;
+package com.control.api.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -26,6 +26,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import lombok.Data;
@@ -66,6 +67,7 @@ public class User implements UserDetails {
 	@Email(message = "Incorrect format")
 	private String userEmail;
 
+	@JsonIgnore
 	@Column(name = "user_password", length = 70, nullable = false)
 	@Size(min = 1, max = 70)
 	private String userPassword;
@@ -104,7 +106,7 @@ public class User implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		final Collection<GrantedAuthority> grantedAuthority = new ArrayList<>();
-		roles.forEach(role -> grantedAuthority.add(new SimpleGrantedAuthority("ROLE_" + role.getRoleTitle())));	
+		roles.forEach(role -> grantedAuthority.add(new SimpleGrantedAuthority("ROLE_" + role.getRoleTitle())));
 		return grantedAuthority;
 	}
 
